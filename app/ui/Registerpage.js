@@ -10,6 +10,9 @@ import { useRouter } from 'next/navigation'
 
 const Register = () => {
   const isDesktop = useMediaQuery('(min-width: 768px)')
+  const route = useRouter()
+  const { data: session } = useSession()
+  if (session) route.push('/dashboard')
 
   return (
     <div className='flex items-center h-screen'>

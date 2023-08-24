@@ -1,46 +1,40 @@
 'use client'
-import dynamic from 'next/dynamic'
-const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false })
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import { Pie } from 'react-chartjs-2'
+ChartJS.register(ArcElement, Tooltip, Legend)
 
+const data = {
+  labels: ['Basic Tees', 'Custom Short Pants', 'Super Hoodies'],
+  datasets: [
+    {
+      data: [55, 31, 14],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+      ],
+      borderWidth: 1,
+    },
+  ],
+  options: {
+    title: {
+      dispaly: true,
+      text: 'Top Brands',
+    },
+    responive: true,
+  },
+}
 const Chart = () => {
-  const pieChartOptions = {
-    series: [44, 55, 67, 83],
-    chart: {
-      height: 250,
-      type: 'pie',
-    },
-    plotOptions: {
-      radialBar: {
-        dataLabels: {
-          name: {
-            fontSize: '22px',
-          },
-          value: {
-            fontSize: '16px',
-          },
-          total: {
-            show: true,
-            label: 'Total',
-            formatter: function (w) {
-              return 249
-            },
-          },
-        },
-      },
-    },
-    labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
-  }
-
   return (
     <div className='col-span-12 mt-5'>
       <div className='grid gap-2 grid-cols-1 lg:grid-cols-2'>
-        <div className='bg-white shadow-sm p-4 rounded-2xl'>
-          <ApexCharts
-            options={pieChartOptions}
-            series={pieChartOptions.series}
-            type={pieChartOptions.chart.type}
-            height={250}
-          />
+        <div className='bg-white flex items-center justify-center shadow-sm p-4 max-h-96  rounded-2xl'>
+          <Pie data={data} />;
         </div>
         <div className='bg-white shadow-sm p-4 rounded-2xl'>
           <h1 className='font-bold text-base'>Schedule</h1>

@@ -8,7 +8,7 @@ import {
   userIcon,
 } from '@/asset/stat_svg'
 import StatsSection from '../ui/StatsSection'
-// import Chart from '../ui/Chart'
+import Chart from '../ui/Chart'
 import LineChart from '../ui/LineChart'
 
 const Dashboard = () => {
@@ -23,7 +23,7 @@ const Dashboard = () => {
               <div className='grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9'>
                 <StatsSection />
                 <LineChart />
-                {/* <Chart /> */}
+                <Chart />
               </div>
             </div>
           </div>

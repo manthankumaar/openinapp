@@ -31,7 +31,7 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'Activity chart',
     },
   },
 }
@@ -57,7 +57,18 @@ const data = {
 }
 
 function LineChart() {
-  return <Line options={options} data={data} />
+  return (
+    <div className='col-span-12 mt-5'>
+      <div className='grid gap-2 grid-cols-1 lg:grid-cols-1'>
+        <div className='bg-white p-4 shadow-sm rounded-2xl'>
+          <h1 className='font-bold text-base'>Activity</h1>
+          <div className=' flex flex-col mt-4 -my-2 overflow-x-auto overflow-auto  sm:rounded-lg  py-2 align-middle min-w-full w-full'>
+            <Line options={options} data={data} height={50} />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default LineChart
