@@ -61,7 +61,7 @@ const data = {
 
 function LineChart() {
   const chartHeight =
-    typeof window !== 'undefined' ? window.innerHeight * 0.4 : 300
+    typeof window !== 'undefined' ? window.innerHeight * 0.4 : 50
   return (
     <div className='col-span-12 mt-5'>
       <div className='grid gap-2 grid-cols-1 lg:grid-cols-1'>
