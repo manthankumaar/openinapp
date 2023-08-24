@@ -60,17 +60,15 @@ const data = {
 }
 
 function LineChart() {
+  const chartHeight =
+    typeof window !== 'undefined' ? window.innerHeight * 0.4 : 300
   return (
     <div className='col-span-12 mt-5'>
       <div className='grid gap-2 grid-cols-1 lg:grid-cols-1'>
         <div className='bg-white p-4 shadow-sm rounded-2xl'>
           <h1 className='font-bold text-base'>Activity</h1>
           <div className=' flex flex-col mt-4  overflow-x-auto overflow-auto  sm:rounded-lg  py-2 align-middle  w-full'>
-            <Line
-              options={options}
-              data={data}
-              height={window.innerWidth > 620 ? 50 : window.innerHeight * 0.4}
-            />
+            <Line options={options} data={data} height={chartHeight} />
           </div>
         </div>
       </div>
