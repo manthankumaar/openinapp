@@ -11,7 +11,6 @@ import {
   Legend,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
-import faker from '@faker-js/faker'
 
 ChartJS.register(
   CategoryScale,
@@ -38,32 +37,41 @@ const options = {
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
 
+const dataset1Data = [500, 800, 1200, 600, 1500, 1000, 300, 700, 1100, 900]
+const dataset2Data = [200, 400, 1000, 300, 1800, 600, 1400, 800, 1300, 500]
 const data = {
   labels,
   datasets: [
     {
       label: 'Dataset 1',
-      data: labels.map(() => Math.floor(Math.random() * 2000) - 1000),
+      data: dataset1Data,
       borderColor: 'rgb(255, 99, 132)',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      tension: 0.4,
     },
     {
       label: 'Dataset 2',
-      data: labels.map(() => Math.floor(Math.random() * 2000) - 1000),
+      data: dataset2Data,
       borderColor: 'rgb(53, 162, 235)',
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      tension: 0.4,
     },
   ],
 }
 
 function LineChart() {
+  console.log(window.innerWidth)
   return (
     <div className='col-span-12 mt-5'>
       <div className='grid gap-2 grid-cols-1 lg:grid-cols-1'>
         <div className='bg-white p-4 shadow-sm rounded-2xl'>
           <h1 className='font-bold text-base'>Activity</h1>
-          <div className=' flex flex-col mt-4 -my-2 overflow-x-auto overflow-auto  sm:rounded-lg  py-2 align-middle min-w-full w-full'>
-            <Line options={options} data={data} height={50} />
+          <div className=' flex flex-col mt-4  overflow-x-auto overflow-auto  sm:rounded-lg  py-2 align-middle  w-full'>
+            <Line
+              options={options}
+              data={data}
+              height={window.innerWidth > 620 ? 50 : window.innerHeight * 0.4}
+            />
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@ const Chart = () => {
     <div className='col-span-12 mt-5'>
       <div className='grid gap-2 grid-cols-1 lg:grid-cols-2'>
         <div className='bg-white flex items-center justify-center shadow-sm p-4 max-h-96  rounded-2xl'>
-          <Pie data={data} />;
+          <Pie data={data} />
         </div>
         <div className='bg-white shadow-sm p-4 rounded-2xl'>
           <h1 className='font-bold text-base'>Schedule</h1>
