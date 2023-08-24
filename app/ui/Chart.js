@@ -1,3 +1,4 @@
+'use client'
 import dynamic from 'next/dynamic'
 const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false })
 
