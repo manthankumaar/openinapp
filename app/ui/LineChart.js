@@ -1,5 +1,5 @@
-import ReactApexChart from 'react-apexcharts'
-
+import dynamic from 'next/dynamic'
+const ApexCharts = dynamic(() => import('react-apexcharts'), { ssr: false })
 const LineChart = () => {
   const lineChartOptions = {
     series: [
@@ -76,7 +76,7 @@ const LineChart = () => {
         <div className='bg-white p-4 shadow-sm rounded-2xl'>
           <h1 className='font-bold text-base'>Activity</h1>
           <div className=' flex flex-col mt-4 -my-2 overflow-x-auto overflow-auto  sm:rounded-lg  py-2 align-middle min-w-full w-full'>
-            <ReactApexChart
+            <ApexCharts
               options={lineChartOptions}
               series={lineChartOptions.series}
               type='line'

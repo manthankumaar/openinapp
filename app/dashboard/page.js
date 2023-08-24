@@ -1,5 +1,3 @@
-'use client'
-import dynamic from 'next/dynamic'
 import Sidebar from '../ui/Sidebar'
 import Header from '../ui/Header'
 import { BiBasket, BiCart, BiCube, BiPackage } from 'react-icons/bi'
@@ -14,10 +12,6 @@ import Chart from '../ui/Chart'
 import LineChart from '../ui/LineChart'
 
 const Dashboard = () => {
-  const DynamicChart = dynamic(() => import('../ui/Chart'), { ssr: false })
-  const DynamicLineChart = dynamic(() => import('../ui/LineChart'), {
-    ssr: false,
-  })
   return (
     <div className='flex h-screen bg-[#F5F5F5]'>
       <Sidebar />
@@ -28,8 +22,8 @@ const Dashboard = () => {
             <div className='grid grid-cols-12 gap-6'>
               <div className='grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9'>
                 <StatsSection />
-                {typeof window !== 'undefined' && <DynamicLineChart />}
-                {typeof window !== 'undefined' && <DynamicChart />}
+                <LineChart />
+                <Chart />
               </div>
             </div>
           </div>
